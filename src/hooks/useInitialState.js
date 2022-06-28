@@ -18,11 +18,18 @@ function useInitialState() {
     });
   };
 
+  const addToBuy = (payload) => {
+    setState({
+      ...state,
+      buyer: [...state.buyer, payload],
+    });
+  };
   return {
     state,
     addToCart,
     removeFromCart,
+    addToBuy,
   };
 }
 
-export {useInitialState};
+export { useInitialState };
