@@ -15,6 +15,7 @@ function Information() {
     const formData = new FormData(form.current);
     const buyer = Object.fromEntries(formData);
     addToBuy(buyer);
+
     navigate('/checkout/payment');
   };
 
