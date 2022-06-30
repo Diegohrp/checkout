@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/components/Information.css';
 import { AppContext } from '../context/AppContext';
 function Information() {
@@ -8,12 +8,14 @@ function Information() {
     addToBuy,
   } = React.useContext(AppContext);
   const form = React.useRef(null);
+  const navigate = useNavigate();
 
   const handleSubmit = () => {
     //e.preventDefault();
     const formData = new FormData(form.current);
     const buyer = Object.fromEntries(formData);
     addToBuy(buyer);
+    navigate('/checkout/payment');
   };
 
   return (

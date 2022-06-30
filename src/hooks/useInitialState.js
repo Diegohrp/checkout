@@ -24,11 +24,18 @@ function useInitialState() {
       buyer: [...state.buyer, payload],
     });
   };
+  const addOrder = (payload) => {
+    setState({
+      ...state,
+      orders: [...state.orders, payload],
+    });
+  };
   return {
     state,
     addToCart,
     removeFromCart,
     addToBuy,
+    addOrder,
   };
 }
 
