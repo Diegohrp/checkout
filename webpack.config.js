@@ -69,12 +69,12 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
-    new Dotenv({
+    /* new Dotenv({
       path: './.env',
       safe: true,
       systemvars: true,
       defaults: false,
-    }),
+    }), */
     new webpack.DefinePlugin({
       'process.env.PAYPAL_CLIENT_ID': JSON.stringify(
         process.env.PAYPAL_CLIENT_ID
