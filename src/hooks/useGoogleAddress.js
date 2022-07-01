@@ -17,7 +17,7 @@ function useGoogleAddress(address) {
   React.useEffect(() => {
     getMap();
   }, []);
-
+  console.log(map);
   return map;
 }
 
