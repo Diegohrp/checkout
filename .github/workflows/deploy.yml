@@ -13,9 +13,9 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
-        env:
-          PAYPAL_CLIENT_ID: ${{secrets.PAYPAL_CLIENT_ID}}
-          GOOGLE_MAPS_API_KEY: ${{secrets.GOOGLE_MAPS_API_KEY}}
+          env:
+            PAYPAL_CLIENT_ID: ${{secrets.PAYPAL_CLIENT_ID}}
+            GOOGLE_MAPS_API_KEY: ${{secrets.GOOGLE_MAPS_API_KEY}}
       - name: Archive Production Artifact
         uses: actions/upload-artifact@main
         with:
