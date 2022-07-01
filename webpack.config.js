@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
-require('dotenv').config();
+const webpack = require('webpack');
 
 module.exports = {
   entry: './src/index.js',
@@ -69,12 +69,12 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
-    /* new Dotenv({
+    new Dotenv({
       path: './.env',
       safe: true,
       systemvars: true,
       defaults: false,
-    }), */
+    }),
     new webpack.DefinePlugin({
       'process.env.PAYPAL_CLIENT_ID': JSON.stringify(
         process.env.PAYPAL_CLIENT_ID
