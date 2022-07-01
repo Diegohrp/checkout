@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const webpack = require('webpack');
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -68,6 +69,16 @@ module.exports = {
       filename: '[name].css',
     }),
     new Dotenv(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        PAYPAL_CLIENT_ID: JSON.stringify(
+          process.env.PAYPAL_CLIENT_ID
+        ),
+        GOOGLE_MAPS_API_KEY: JSON.stringify(
+          process.env.GOOGLE_MAPS_API_KEY
+        ),
+      },
+    }),
   ],
   optimization: {
     minimize: true,
